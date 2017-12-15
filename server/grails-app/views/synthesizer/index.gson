@@ -1,0 +1,8 @@
+import logicaldeletedemo.Synthesizer
+
+model {
+	Iterable<Synthesizer> synthesizerList
+}
+
+json tmpl.synthesizer(synthesizerList ?: [])
+

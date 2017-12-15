@@ -1,0 +1,7 @@
+import logicaldeletedemo.Synthesizer
+
+model {
+	Synthesizer synthesizer
+}
+
+json g.render(synthesizer, [resolveTemplate: false])

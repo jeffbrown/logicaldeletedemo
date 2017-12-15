@@ -1,0 +1,7 @@
+import logicaldeletedemo.Synthesizer
+
+model {
+	Synthesizer synthesizer
+}
+
+json tmpl.synthesizer(synthesizer)
