@@ -45,7 +45,7 @@ class ShowDeletedSynths extends React.Component {
             <Row>
                 <h2>Deleted Synthesizer List</h2>
                 <Alert bsStyle="info">
-                    Below is a list of all of the synthesizers which have been deleted.
+                    Below is a list of all of the synthesizers which <b>have</b> been deleted.
                 </Alert>
 
                 <h2><Label>Deleted Synthesizers</Label></h2>
