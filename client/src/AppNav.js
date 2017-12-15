@@ -28,7 +28,7 @@ function AppNav({route, showSynths, showDeletedSynths}) {
                 key = 1;
                 break;
             case 'showDeletedSynths':
-                key = 1;
+                key = 2;
                 break;
             default:
                 key = 0;
