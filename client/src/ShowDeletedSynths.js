@@ -1,8 +1,8 @@
 import React from 'react';
-import {Alert, Button, Label, Row, Table} from 'react-bootstrap';
+import {Alert, Label, Row} from 'react-bootstrap';
 import 'whatwg-fetch';
 import {SERVER_URL} from './config';
-import FontAwesome from 'react-fontawesome';
+import SynthTable from './SynthTable';
 
 class ShowDeletedSynths extends React.Component {
 
@@ -25,7 +25,7 @@ class ShowDeletedSynths extends React.Component {
         this.updateSynthList();
     }
 
-    unDeleteSynth = (e, id) => {
+    unDeleteSynth = (id) => {
         console.log(`Undeleting ${id}`);
         fetch(`${SERVER_URL}/undeleteSynth/${id}`, {
             method: 'PUT',
@@ -36,22 +36,6 @@ class ShowDeletedSynths extends React.Component {
                 this.updateSynthList();
             })
             .catch(() => this.setState({error: "Unable to access server!"}));
-    };
-
-    renderSynthRow = ({manufacturer, modelName, deleted, id}) => {
-        return (<tr key={id}>
-            <td>
-                {manufacturer}
-            </td>
-            <td>
-                {modelName}
-            </td>
-            <td>
-                <Button bsStyle='primary' onClick={(e) => this.unDeleteSynth(e, id)}>
-                    <FontAwesome name='check' style={{color: 'white'}}/> Undelete
-                </Button>
-            </td>
-        </tr>);
     };
 
     render() {
@@ -65,20 +49,7 @@ class ShowDeletedSynths extends React.Component {
                 </Alert>
 
                 <h2><Label>Deleted Synthesizers</Label></h2>
-                <Table striped bordered condensed hover>
-                    <thead>
-                    <tr>
-                        <th>Manufacturer</th>
-                        <th>Model</th>
-                        <th>Deleted</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-
-                    {synths.map(this.renderSynthRow)}
-
-                    </tbody>
-                </Table>
+                <SynthTable synths={synths} buttonText="Recover" submit={this.unDeleteSynth}/>
             </Row>
         );
     }
