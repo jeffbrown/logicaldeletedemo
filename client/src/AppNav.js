@@ -40,7 +40,7 @@ function AppNav({route, showSynths, showDeletedSynths}) {
     return (
         <Nav bsStyle="tabs" activeKey={tabKey()}>
           <NavItem eventKey={1} onClick={showSynths}>List Synths</NavItem>
-          <NavItem eventKey={1} onClick={showDeletedSynths}>List Deleted Synths</NavItem>
+          <NavItem eventKey={2} onClick={showDeletedSynths}>List Deleted Synths</NavItem>
         </Nav>);
 
 }
