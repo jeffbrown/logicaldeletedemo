@@ -1,5 +1,7 @@
 package logicaldeletedemo
 
+import grails.util.Environment
+
 class UrlMappings {
 
     static mappings = {
@@ -14,7 +16,11 @@ class UrlMappings {
         get '/deletedSynths'(controller: 'synthesizer', action: 'showDeleted')
         put "/undeleteSynth/$id"(controller: 'synthesizer', action: 'undelete')
 
-        "/"(controller: 'application', action:'index')
+        if ( Environment.current == Environment.PRODUCTION ) {
+            '/'(uri: '/index.html')
+        } else {
+            '/'(controller: 'application', action:'index')
+        }
         "500"(view: '/error')
         "404"(view: '/notFound')
     }
