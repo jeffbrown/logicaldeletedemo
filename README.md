@@ -16,13 +16,7 @@ Note that the argument after `-p` is a pair of port numbers.  The second number 
 container and that needs to be 8080.  The first number is the port in the host environment that you would 
 like mapped to the second port.  For example, if you use `-p 8086:8080` then port 8086 in your host
 environment will be mapped to port 8080 in the container so http://localhost:8086/ could be used to
-access the app in the host environment.  You will see console output that looks something like this...
-
-    Grails application running at http://localhost:8080 in environment: production
-
-That is coming from inside the container and the port number there represents the port
-number being used inside the container, not necessarily the port number you have mapped
-to that using the `-p` argument.
+access the app in the host environment.
 
 To stop the container:
 
