@@ -7,7 +7,7 @@ buildscript {
     }
 }
 
-version "0.1"
+version "0.2"
 group "grailssamples"
 
 apply plugin: 'docker'
@@ -45,7 +45,7 @@ task buildDocker(type: Docker) {
     baseImage = 'williamyeh/java8'
     push = false
     push = project.hasProperty('pushDocker')
-    addFile 'build/server-0.1.jar', '/logicaldeletedemo.jar'
+    addFile 'build/server-0.2.jar', '/logicaldeletedemo.jar'
     entryPoint(['java', '-Djava.security.egd=file:/dev/./urandom', '-jar', '/logicaldeletedemo.jar'])
     exposePort(8080)
 }
