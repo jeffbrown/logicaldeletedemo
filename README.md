@@ -10,7 +10,7 @@ The application may be run locally using the [Gradle](http://gradle.org/) `bootR
 A [Docker](http://docker.com) image has been published which includes a version of this application.  To 
 install the image and start the container the first time run the following:
 
-    docker run --name logicaldelete_demo -d -p 8086:8080 grailssamples/logicaldeletedemo:0.1
+    docker run --name logicaldelete_demo -d -p 8086:8080 grailssamples/logicaldeletedemo:0.2
     
 Note that the argument after `-p` is a pair of port numbers.  The second number is the port inside the 
 container and that needs to be 8080.  The first number is the port in the host environment that you would 
