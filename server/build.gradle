@@ -56,7 +56,7 @@ dependencies {
     testCompile "org.grails:grails-datastore-rest-client"
     testCompile "org.grails:grails-web-testing-support"
 
-    compile 'org.grails.plugins:gorm-logical-delete:2.0.0.BUILD-SNAPSHOT'
+    compile 'org.grails.plugins:gorm-logical-delete:2.0.0.M2'
 }
 
 bootRun {
