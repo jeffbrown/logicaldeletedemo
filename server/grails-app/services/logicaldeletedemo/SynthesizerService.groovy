@@ -24,12 +24,14 @@ abstract class SynthesizerService {
 
     @Transactional
     boolean undelete(Serializable id) {
-        Synthesizer synth = get(id)
-        if(synth == null) {
-            return false
-        }
+        Synthesizer.withDeleted {
+            Synthesizer synth = get(id)
+            if (synth == null) {
+                return false
+            }
 
-        synth.unDelete()
+            synth.unDelete()
+        }
         true
     }
 }
