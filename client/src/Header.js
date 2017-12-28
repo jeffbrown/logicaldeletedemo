@@ -1,18 +1,20 @@
-import React, {Component} from 'react';
 import {route} from 'react-hash-route';
 
-class Header extends Component {
+import React from 'react';
+import {Nav, NavItem} from 'react-bootstrap';
+import {func, string} from 'prop-types';
+
+class Header extends React.Component {
 
     showSynths = () => route('showSynths');
     showDeletedSynths = () => route('showDeletedSynths');
 
     render() {
         return (
-            <div>
-                <a key="showSynths" onClick={this.showSynths}>Show Synths</a>
-                <a key="showDeletedSynths" onClick={this.showSynths}>Show Deleted Synths</a>
-            </div>
-        );
+            <Nav bsStyle="tabs">
+                <NavItem onClick={this.showSynths}>List Synths</NavItem>
+                <NavItem onClick={this.showDeletedSynths}>List Deleted Synths</NavItem>
+            </Nav>);
     }
 }
 
