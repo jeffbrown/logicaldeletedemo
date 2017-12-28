@@ -4,7 +4,6 @@ import Header from './Header';
 import ShowSynths from './ShowSynths';
 import ShowDeletedSynths from './ShowDeletedSynths';
 import {getHash} from 'react-hash-route';
-import 'whatwg-fetch';
 
 const componentMap = {
     showSynths: <ShowSynths/>,

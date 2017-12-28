@@ -1,6 +1,5 @@
 import React from 'react';
 import {Alert, Label, Row} from 'react-bootstrap';
-import 'whatwg-fetch';
 import {SERVER_URL} from './config';
 import SynthTable from './SynthTable';
 
