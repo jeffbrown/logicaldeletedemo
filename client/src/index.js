@@ -7,7 +7,7 @@ import './css/grails.css';
 import './css/main.css';
 
 function render() {
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.render(<App/>, document.getElementById('root'));
 }
 
 routeSetup(render);

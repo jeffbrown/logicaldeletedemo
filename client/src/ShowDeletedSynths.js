@@ -12,6 +12,7 @@ class ShowDeletedSynths extends React.Component {
             synths: []
         }
     }
+
     updateSynthList = () => {
         fetch(`${SERVER_URL}/deletedSynths/`)
             .then(r => r.json())

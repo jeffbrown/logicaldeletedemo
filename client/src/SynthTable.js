@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 import React from 'react';
-import {Table, Button, Row} from 'react-bootstrap';
+import {Button, Row, Table} from 'react-bootstrap';
 import FontAwesome from 'react-fontawesome';
 
 const SynthTable = ({synths, submit, buttonText}) => {
