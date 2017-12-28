@@ -2,7 +2,6 @@ import {route} from 'react-hash-route';
 
 import React from 'react';
 import {Nav, NavItem} from 'react-bootstrap';
-import {func, string} from 'prop-types';
 
 class Header extends React.Component {
 
