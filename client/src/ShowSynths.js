@@ -5,12 +5,7 @@ import SynthTable from './SynthTable';
 
 class ShowSynths extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            synths: []
-        }
-    }
+    state = {synths: []};
 
     componentDidMount() {
         this.updateSynthList();

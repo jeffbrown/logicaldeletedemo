@@ -5,12 +5,7 @@ import SynthTable from './SynthTable';
 
 class ShowDeletedSynths extends React.Component {
 
-    constructor() {
-        super();
-        this.state = {
-            synths: []
-        }
-    }
+    state = {synths: []};
 
     updateSynthList = () => {
         fetch(`${SERVER_URL}/deletedSynths/`)
