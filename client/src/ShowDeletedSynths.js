@@ -7,13 +7,14 @@ class ShowDeletedSynths extends React.Component {
 
     state = {synths: []};
 
-    updateSynthList = () => {
-        fetch(`${SERVER_URL}/deletedSynths/`)
-            .then(r => r.json())
-            .then(json => {
-                this.setState({synths: json})
-            })
-            .catch(ex => console.error('parsing failed', ex))
+    updateSynthList = async () => {
+        try {
+            const res = await fetch(`${SERVER_URL}/deletedSynths/`);
+            const synths = await res.json();
+            this.setState({synths});
+        } catch (e) {
+            console.error('parsing failed', e);
+        }
     };
 
     componentDidMount() {

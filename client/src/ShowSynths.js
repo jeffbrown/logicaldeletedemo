@@ -11,13 +11,14 @@ class ShowSynths extends React.Component {
         this.updateSynthList();
     }
 
-    updateSynthList = () => {
-        fetch(`${SERVER_URL}/synths/`)
-            .then(r => r.json())
-            .then(json => {
-                this.setState({synths: json})
-            })
-            .catch(ex => console.error('parsing failed', ex))
+    updateSynthList = async () => {
+        try {
+            const res = await fetch(`${SERVER_URL}/synths/`);
+            const synths = await res.json();
+            this.setState({synths});
+        } catch (e) {
+            console.error('parsing failed', e);
+        }
     };
 
     deleteSynth = (id) => {
