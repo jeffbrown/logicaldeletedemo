@@ -1,18 +1,14 @@
-import {route} from 'react-hash-route';
-
 import React from 'react';
 import {Nav, NavItem} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component {
-
-    showSynths = () => route('showSynths');
-    showDeletedSynths = () => route('showDeletedSynths');
 
     render() {
         return (
             <Nav bsStyle="tabs">
-                <NavItem onClick={this.showSynths}>List Synths</NavItem>
-                <NavItem onClick={this.showDeletedSynths}>List Deleted Synths</NavItem>
+                <NavItem><Link to={'/synths'}>List Synths</Link></NavItem>
+                <NavItem><Link to={'/deletedSynths'}>List Deleted Synths</Link></NavItem>
             </Nav>);
     }
 }
