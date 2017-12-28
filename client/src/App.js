@@ -1,64 +1,33 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Grid} from 'react-bootstrap';
-import AppNav from './AppNav';
+import Header from './Header';
 import ShowSynths from './ShowSynths';
 import ShowDeletedSynths from './ShowDeletedSynths';
 import {Col, Row} from 'react-bootstrap';
+import {getHash} from 'react-hash-route';
 import 'whatwg-fetch';
 
-class App extends Component {
+const componentMap = {
+    showSynths: <ShowSynths />,
+    showDeletedSynths: <ShowDeletedSynths />
+};
 
-    constructor() {
-        super();
+const App = () => (
+    <Grid>
+        <Row>
+            <Col mdOffset={1} md={10}>
+                <Header />
+            </Col>
+        </Row>
+        <Row>
+            <Col mdOffset={1} md={10}>
+                <div>
+                    {componentMap[getHash() || 'showSynths']}
+                </div>
+            </Col>
+        </Row>
+    </Grid>
 
-        this.state = {
-            route: 'showSynths',
-            synths: {}
-        }
-    }
-
-    showSynths = () => this.setState({route: 'showSynths'});
-
-    showDeletedSynths = () => this.setState({route: 'showDeletedSynths'});
-
-    routeContent = () => {
-        let content;
-        const {route} = this.state;
-
-        switch (route) {
-            case 'showSynths':
-                content = <ShowSynths />;
-                break;
-            case 'showDeletedSynths':
-                content = <ShowDeletedSynths />;
-                break;
-            default:
-                content = <h1>Error</h1>
-        }
-        return content;
-    };
-
-    render() {
-        const {route} = this.state;
-
-        return (
-            <Grid>
-                <Row>
-                    <Col mdOffset={1} md={10}>
-                        <AppNav route={route}
-                                showSynths={this.showSynths}
-                                showDeletedSynths={this.showDeletedSynths}
-                        />
-                    </Col>
-                </Row>
-                <Row>
-                    <Col mdOffset={1} md={10}>
-                        {this.routeContent()}
-                    </Col>
-                </Row>
-            </Grid>
-        );
-    }
-}
+);
 
 export default App;
